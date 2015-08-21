@@ -1,24 +1,24 @@
-<h1>Task List</h1>
+<h1>Dictionary</h1>
 
 <ul>                            ##un-numbered list(bullet list)
-  #foreach ($task in $tasks)       ##it grabs each task in the ArrayList called 'tasks'
-    <li>$task.getDescription() : created at $task.getCreatedAt()</li>  ##For each task it runs the getDescription method which returns a string and that ends up between the two li tags
+  #foreach ($word in $words)       ##it grabs each task in the ArrayList called 'words'
+    <li>$word.getDescription() : created at $word.getCreatedAt()</li>  ##For each task it runs the getDescription method which returns a string and that ends up between the two li tags
   #end
 </ul>
 
-<h3>Add a  new Task:</h3>
+<h3>Add a  new word:</h3>
 
-<form action="/tasks" method="post">  #*This is telling App.java to
-post the results to "/tasks" page. Method="post" means you
-can update the page instead of creating a new page like using Method="get"*#
+<form action="/words" method="post">  #*This is telling App.java to
+                                      post the results to "/tasks" page. Method="post" means you
+                                      can update the page instead of creating a new page like using Method="get"*#
 
-      <label for="description">Task Description</label>
+      <label for="description">Word</label>
       <input id="description" name="description" type="text"/>  ##name"description" is our variable that goes to App.java
 
   <br/>
   <br/>
-    <button type="submit" class="btn">Add task</button>
-    <h3>Your tasks are:</h3>
+    <button type="submit" class="btn">Add word</button>
+    <h3>Your words are:</h3>
 
 
 </form>
