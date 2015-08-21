@@ -40,6 +40,10 @@ public class Word {
         return mId;
       }
 
+      public static ArrayList getAll() {
+        return instances;
+      }
+
       public void completeWord () {
         mCompleted = true;
       }

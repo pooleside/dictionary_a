@@ -29,18 +29,18 @@ public class WordTest {
     assertEquals(LocalDateTime.now().getDayOfWeek(), myWord.getCreatedAt().getDayOfWeek());
   }
 
-  // @Test
-  // public void all_returnsAllInstancesOfWord_true() {
-  //   Word firstWord = new Word("garden");
-  //   Word secondWord = new Word("flower");
-  //   assertTrue(Word.all().contains(firstWord));
-  //   assertTrue(Word.all().contains(secondWord));
-  // }
+  @Test
+  public void all_returnsAllInstancesOfWord_true() {
+    Word firstWord = new Word("garden");
+    Word secondWord = new Word("flower");
+    assertTrue(Word.getAll().contains(firstWord));
+    assertTrue(Word.getAll().contains(secondWord));
+  }
 
   @Test
   public void newId_wordsInstantiateWithAnID_true() {
     Word myWord = new Word("garden");
-    assertEquals(Word.all().size(), myWord.getId());
+    assertEquals(Word.getAll().size(), myWord.getId());
   }
 
   @Test
@@ -59,7 +59,7 @@ public class WordTest {
   public void clear_emptiesAllWordsFromArrayList() {
     Word myWord = new Word("garden");
     Word.clear();
-    assertEquals(Word.all().size(), 0);
+    assertEquals(Word.getAll().size(), 0);
   }
   @Rule
   public ClearRule clearRule = new ClearRule();
