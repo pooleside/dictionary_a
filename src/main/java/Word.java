@@ -1,51 +1,43 @@
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 
 public class Word {
   private static ArrayList<Word> instances = new ArrayList<Word>();
 //these are the properties (buckets) where the class stores data
-  private String mDescription;
-  private LocalDateTime mCreatedAt;
-  private boolean mCompleted;
+  private String mName;
   private int mId;
+  private ArrayList<Definition> mDefinitions;
 
   //This is the constructor.  It creates a new Word instance.
-  public Word (String description) {
-    mDescription = description;  //Filling the properties with parameter value
-    mCreatedAt = LocalDateTime.now();  //built-in method in java
-    mCompleted = false;  //giving it an initial value
+  public Word (String name) {
+    mName = name;  //Filling the properties with parameter value
     instances.add(this); //adding itself to a list.  When we are working inside an object we use keyword 'this' to reference that object
     mId = instances.size(); //instances is the list.  Size is how many items are in the list.  Example: If there are 5 instances it will have any ID of 5
-                            //Using the count as the ID at the time of creation.  You add it and then say "how big is it?"
+    mDefinitions = new ArrayList<Definition>();                        //Using the count as the ID at the time of creation.  You add it and then say "how big is it?"
   }
       //Method section
       //Method that gets the string from the properties.
-      public String getDescription() {
-        return mDescription; // do not put = because just returning a variable that is
+      public String getName() {
+        return mName; // do not put = because just returning a variable that is
                         //already filled by the constructor.  This is why we
                         //have a constructor.  We have created our getDescription
                         //method.
-      }
-
-      public LocalDateTime getCreatedAt() {
-        return mCreatedAt;
-      }
-
-      public boolean isCompleted() {
-        return mCompleted;
       }
 
       public int getId() {
         return mId;
       }
 
-      public static ArrayList getAll() {
+      public static ArrayList<Word> getAll() {
         return instances;
       }
 
-      public void completeWord () {
-        mCompleted = true;
+      public  ArrayList<Definition> getDefinitions() {
+        return mDefinitions;
+      }
+
+      public void addDefinition(Definition d) {
+        mDefinitions.add(d);
       }
 
       public static Word find(int id) {          //the try-catch work flow.  Why do we use this?
@@ -59,4 +51,5 @@ public class Word {
       public static void clear () {
         instances.clear();
       }
+
 }

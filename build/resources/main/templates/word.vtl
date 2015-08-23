@@ -1,8 +1,8 @@
-#if ($word)
-  <h1>$word.getDescription()</h1>
-#else
-  <h1> Word not found </h1>
+<h3>Here are the definitions for the Word $word.getName()</h3>
+
+#foreach($definition in $word.getDefinitions())
+<h3>$definition.getDescription()</a></h3>
 #end
 
-<a href="/words/new">Add another word</a>
-<a href="/words">All words</a>
+##<a href= "/words/$word.getId()/definitions/new">Add a new definition</a>
+<a href= "/">Return to Main Page</a>

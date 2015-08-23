@@ -33,48 +33,43 @@ public class AppTest extends FluentTest {
   @Test
   public void wordIsCreatedTest(){
     goTo("http://localhost:4567/");//going to the home page-indicated by one slash / after server name
-    
-    fill("#description").with("garden");  //fill the input that has the ID of "description" with "Call home" on home.vtl page
+    click("a", withText("Add a new word"));
+    fill("#name").with("garden");  //fill the input that has the ID of "description" with "Call home" on home.vtl page
     submit(".btn"); //on home.vtl page find type= "submit" with class btn.  The dot signifies "look for a class" Example line...<button type="submit" class="btn">GO!</button>
     assertThat(pageSource()).contains("Your word");
     //assertThat means "look for", pageSource is html
   }
 
-  // @Test
-  // public void wordIsDisplayedTest() {
-  // goTo("http://localhost:4567/words/new");
-  // fill("#description").with("garden");
-  // submit(".btn");
-  // click("a", withText("View words"));
-  // assertThat(pageSource()).contains("garden");
-  // }
+  @Test
+  public void wordIsDisplayedTest() {
+  goTo("http://localhost:4567/words/new");
+  fill("#name").with("garden");
+  submit(".btn");
+  click("a", withText("View words"));
+  assertThat(pageSource()).contains("garden");
+  }
 
-  // @Test
-  // public void multipleWordsAreDisplayedTest(){
-  // goTo("http://localhost:4567/words/new");
-  // fill("#description").with("garden");
-  // submit(".btn");
-  // goTo("http://localhost:4567/words/new");
-  // fill("#description").with("tree");
-  // submit(".btn");
-  // click("a", withText("View words"));    //Use 'click 'when you want to click a link.  "a" is referring to the html anchor tag.
-  // assertThat(pageSource()).contains("garden");
-  // assertThat(pageSource()).contains("tree");
-  // }
+  @Test
+  public void multipleWordsAreDisplayedTest(){
+  goTo("http://localhost:4567/words/new");
+  fill("#name").with("garden");
+  submit(".btn");
+  goTo("http://localhost:4567/words/new");
+  fill("#name").with("tree");
+  submit(".btn");
+  click("a", withText("View words"));    //Use 'click 'when you want to click a link.  "a" is referring to the html anchor tag.
+  assertThat(pageSource()).contains("garden");
+  assertThat(pageSource()).contains("tree");
+  }
 
-  // @Test
-  // public void wordShowPageDisplaysDescription() {
-  // goTo("http://localhost:4567/words/new");
-  // fill("#description").with("garden");
-  // submit(".btn");
-  // click("a", withText("View words"));
-  // click("a", withText("garden"));
-  // assertThat(pageSource()).contains("garden");
-  // }
+  @Test
+  public void wordShowPageDisplaysDescription() {
+  goTo("http://localhost:4567/words/new");
+  fill("#name").with("garden");
+  submit(".btn");
+  click("a", withText("View words"));
+  click("a", withText("garden"));
+  assertThat(pageSource()).contains("garden");
+  }
 
-  // @Test
-  // public void wordNotFoundMessageShown() {
-  //   goTo("http://localhost:4567/words/999");
-  //   assertThat(pageSource()).contains("Task not found");
-  // }
-}
+ }

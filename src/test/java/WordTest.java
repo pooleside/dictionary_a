@@ -1,5 +1,5 @@
-import java.time.LocalDateTime;
 import org.junit.*;
+import java.util.ArrayList;
 import static org.junit.Assert.*;
 import static org.fluentlenium.core.filter.FilterConstructor.*;
 
@@ -15,19 +15,15 @@ public class WordTest {
   @Test
   public void word_instantiatesWithDescription_true() {
     Word myWord = new Word ("garden");
-    assertEquals("garden", myWord.getDescription());
-  }
-  @Test
-  public void isCompleted_isFalseAfterInstantiaon_false() {
-    Word myWord = new Word("garden");
-    assertEquals(false, myWord.isCompleted());
+    assertEquals("garden", myWord.getName());
   }
 
   @Test
-  public void getCreatedAt_instantiatesWithCurrentTime_today() {
+  public void getName_returnsName_true() {
     Word myWord = new Word("garden");
-    assertEquals(LocalDateTime.now().getDayOfWeek(), myWord.getCreatedAt().getDayOfWeek());
+    assertEquals("garden", myWord.getName());
   }
+
 
   @Test
   public void all_returnsAllInstancesOfWord_true() {
