@@ -24,13 +24,13 @@ public class DefinitionTest {
   }
 
 
-  // @Test
-  // public void all_returnsAllInstancesOfWord_true() {
-  //   Word firstWord = new Word("garden");
-  //   Word secondWord = new Word("flower");
-  //   assertTrue(Word.getAll().contains(firstWord));
-  //   assertTrue(Word.getAll().contains(secondWord));
-  // }
+  @Test
+  public void all_returnsAllInstancesOfWord_true() {
+    Word firstWord = new Word("garden");
+    Word secondWord = new Word("flower");
+    assertTrue(Word.getAll().contains(firstWord));
+    assertTrue(Word.getAll().contains(secondWord));
+  }
 
   @Test
   public void newId_DefinitionInstantiateWithAnID_true() {
